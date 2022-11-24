@@ -81,15 +81,15 @@ const Navigation = () => {
               !user&&<div className="text-lg hidden md:block">
               <Link
                 to="/login"
-                className="bg-gradient-to-r from-sky-500 bg-cyan-500  py-3 px-6 mx-2 rounded-full text-white"
+                className="bg-sky-500  py-2 px-4 mx-2 rounded-full text-white"
               >
                 LOGIN
               </Link>
               <Link
                 to="/register"
-                className="bg-gradient-to-r from-purple-500 to-pink-500 py-3 px-6 mx-2 rounded-full text-white"
+                className="bg-gradient-to-r from-purple-500 to-pink-500 py-2 px-4 mx-2 rounded-full text-white"
               >
-                SIGNUP
+                REGISTER
               </Link>
             </div>
             }
