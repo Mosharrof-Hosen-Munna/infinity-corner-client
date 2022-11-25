@@ -21,40 +21,7 @@ const Routes = createBrowserRouter([
         path: "/home",
         element: <Home />,
       },
-      {
-        path: "/dashboard",
-        element: <DashboardLayout />,
-        children: [
-          {
-            path: "/dashboard",
-            element: <Dashboard />,
-          },
-          {
-            path: "/dashboard/my-orders",
-            element: <Dashboard />,
-          },
-          {
-            path: "/dashboard/add-product",
-            element: <AddProduct />,
-          },
-          {
-            path: "/dashboard/my-products",
-            element: <Dashboard />,
-          },
-          {
-            path: "/dashboard/all-sellers",
-            element: <Dashboard />,
-          },
-          {
-            path: "/dashboard/all-buyers",
-            element: <Dashboard />,
-          },
-          {
-            path: "/dashboard/reported-product",
-            element: <Dashboard />,
-          },
-        ],
-      },
+      
       {
         path: "/login",
         element: <Login />,
@@ -66,6 +33,41 @@ const Routes = createBrowserRouter([
       {
         path: "*",
         element: <NotFound />,
+      },
+    ],
+
+  },
+  {
+    path: "/dashboard",
+    element: <DashboardLayout />,
+    children: [
+      {
+        path: "/dashboard",
+        element: <Dashboard />,
+      },
+      {
+        path: "/dashboard/my-orders",
+        element: <Dashboard />,
+      },
+      {
+        path: "/dashboard/add-product",
+        element: <AddProduct />,
+      },
+      {
+        path: "/dashboard/my-products",
+        element: <Dashboard />,
+      },
+      {
+        path: "/dashboard/all-sellers",
+        element: <Dashboard />,
+      },
+      {
+        path: "/dashboard/all-buyers",
+        element: <Dashboard />,
+      },
+      {
+        path: "/dashboard/reported-product",
+        element: <Dashboard />,
       },
     ],
   },

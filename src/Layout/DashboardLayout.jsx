@@ -1,22 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
 import Loading from "../Pages/Shared/Loading/Loading";
+import Navigation from "../Pages/Shared/Navigation/Navigation";
 
 const DashboardLayout = () => {
   const { user, loading } = useAuth();
-
+  useEffect(()=>{
+    document.body.style.overflow = 'hidden'
+    document.body.style.maxHeight = '100vh'
+  },[])
   if (loading) {
     return <Loading></Loading>;
   }
+  
 
   return (
-    <section className="bg-slate-100 min-h-screen">
+    <>
+    <Navigation/>
+    <section  className="bg-slate-100   overflow-hidden">
       <div className="">
         <div className="md:flex">
-          <div className="md:w-1/4  bg-white min-h-screen">
+          <div style={{}}  className="md:w-1/4 bg-white min-h-screen">
             <nav className="py-4">
-              <h1 className="text-4xl ml-3 font-semibold mb-4 text-sky-600">
+              <h1 className="text-3xl ml-3 font-semibold mb-4 text-sky-600">
                 Dashboard
               </h1>
               <ul className="">
@@ -26,8 +33,8 @@ const DashboardLayout = () => {
                       to={`/dashboard/my-orders`}
                       className={({ isActive }) =>
                         isActive
-                          ? "border-red-400 border-l-8 text-white bg-sky-500 p-4 my-1 inline-block w-full  cursor-pointer shadow-md    font-semibold text-lg"
-                          : "p-4 my-1 inline-block w-full bg-white cursor-pointer shadow-md hover:bg-sky-500 hover:border-l-8 border-red-400 hover:text-white duration-300 font-semibold text-lg"
+                          ? "border-red-400 border-l-8 text-white bg-sky-500 p-3 my-1 inline-block w-full  cursor-pointer shadow-md    font-semibold text-lg"
+                          : "p-3 my-1 inline-block w-full bg-white cursor-pointer shadow-md hover:bg-sky-500 hover:border-l-8 border-red-400 hover:text-white duration-300 font-semibold text-lg"
                       }
                     >
                       My Orders
@@ -42,8 +49,8 @@ const DashboardLayout = () => {
                       to={`/dashboard/add-product`}
                       className={({ isActive }) =>
                         isActive
-                          ? "border-red-400 border-l-8 text-white bg-sky-500 p-4 my-1 inline-block w-full  cursor-pointer shadow-md    font-semibold text-lg"
-                          : "p-4 my-1 inline-block w-full bg-white cursor-pointer shadow-md hover:bg-sky-500 hover:border-l-8 border-red-400 hover:text-white duration-300 font-semibold text-lg"
+                          ? "border-red-400 border-l-8 text-white bg-sky-500 p-3 my-1 inline-block w-full  cursor-pointer shadow-md    font-semibold text-lg"
+                          : "p-3 my-1 inline-block w-full bg-white cursor-pointer shadow-md hover:bg-sky-500 hover:border-l-8 border-red-400 hover:text-white duration-300 font-semibold text-lg"
                       }
                     >
                      Add A Product
@@ -54,8 +61,8 @@ const DashboardLayout = () => {
                       to={`/dashboard/my-products`}
                       className={({ isActive }) =>
                         isActive
-                          ? "border-red-400 border-l-8 text-white bg-sky-500 p-4 my-1 inline-block w-full  cursor-pointer shadow-md    font-semibold text-lg"
-                          : "p-4 my-1 inline-block w-full bg-white cursor-pointer shadow-md hover:bg-sky-500 hover:border-l-8 border-red-400 hover:text-white duration-300 font-semibold text-lg"
+                          ? "border-red-400 border-l-8 text-white bg-sky-500 p-3 my-1 inline-block w-full  cursor-pointer shadow-md    font-semibold text-lg"
+                          : "p-3 my-1 inline-block w-full bg-white cursor-pointer shadow-md hover:bg-sky-500 hover:border-l-8 border-red-400 hover:text-white duration-300 font-semibold text-lg"
                       }
                     >
                      My Products
@@ -69,8 +76,8 @@ const DashboardLayout = () => {
                       to={`/dashboard/all-sellers`}
                       className={({ isActive }) =>
                         isActive
-                          ? "border-red-400 border-l-8 text-white bg-sky-500 p-4 my-1 inline-block w-full  cursor-pointer shadow-md    font-semibold text-lg"
-                          : "p-4 my-1 inline-block w-full bg-white cursor-pointer shadow-md hover:bg-sky-500 hover:border-l-8 border-red-400 hover:text-white duration-300 font-semibold text-lg"
+                          ? "border-red-400 border-l-8 text-white bg-sky-500 p-3 my-1 inline-block w-full  cursor-pointer shadow-md    font-semibold text-lg"
+                          : "p-3 my-1 inline-block w-full bg-white cursor-pointer shadow-md hover:bg-sky-500 hover:border-l-8 border-red-400 hover:text-white duration-300 font-semibold text-lg"
                       }
                     >
                      All Sellers
@@ -81,8 +88,8 @@ const DashboardLayout = () => {
                       to={`/dashboard/all-buyers`}
                       className={({ isActive }) =>
                         isActive
-                          ? "border-red-400 border-l-8 text-white bg-sky-500 p-4 my-1 inline-block w-full  cursor-pointer shadow-md    font-semibold text-lg"
-                          : "p-4 my-1 inline-block w-full bg-white cursor-pointer shadow-md hover:bg-sky-500 hover:border-l-8 border-red-400 hover:text-white duration-300 font-semibold text-lg"
+                          ? "border-red-400 border-l-8 text-white bg-sky-500 p-3 my-1 inline-block w-full  cursor-pointer shadow-md    font-semibold text-lg"
+                          : "p-3 my-1 inline-block w-full bg-white cursor-pointer shadow-md hover:bg-sky-500 hover:border-l-8 border-red-400 hover:text-white duration-300 font-semibold text-lg"
                       }
                     >
                      All Buyers
@@ -93,8 +100,8 @@ const DashboardLayout = () => {
                       to={`/dashboard/reported-product`}
                       className={({ isActive }) =>
                         isActive
-                          ? "border-red-400 border-l-8 text-white bg-sky-500 p-4 my-1 inline-block w-full  cursor-pointer shadow-md    font-semibold text-lg"
-                          : "p-4 my-1 inline-block w-full bg-white cursor-pointer shadow-md hover:bg-sky-500 hover:border-l-8 border-red-400 hover:text-white duration-300 font-semibold text-lg"
+                          ? "border-red-400 border-l-8 text-white bg-sky-500 p-3 my-1 inline-block w-full  cursor-pointer shadow-md    font-semibold text-lg"
+                          : "p-3 my-1 inline-block w-full bg-white cursor-pointer shadow-md hover:bg-sky-500 hover:border-l-8 border-red-400 hover:text-white duration-300 font-semibold text-lg"
                       }
                     >
                      Reported Product
@@ -104,25 +111,16 @@ const DashboardLayout = () => {
               </ul>
             </nav>
           </div>
-          <div className="md:w-full md:ml-8 mt-8 md:mt-0">
+          <div style={{maxHeight: '100vh'}} className="md:w-full md:ml-8 mt-8 md:mt-0 overflow-scroll">
             <Outlet />
           </div>
         </div>
       </div>
     </section>
+    </>
   );
 };
 
 export default DashboardLayout;
 
 
-/***
- * Product Name,
- * Price,
- * Condition(excellent,good,fair)
- * mobile number,
- * location,
- * category,
- * description,
- * year of purchase,
- * */

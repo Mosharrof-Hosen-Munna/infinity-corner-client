@@ -9,7 +9,7 @@ const Navigation = () => {
    <>
     
    <nav className="font-semibold  shadow-md shadow-slate-300 bg-white sticky top-0 z-50">
-   <div className="navbar  py-4 container mx-auto">
+   <div className="navbar  py-2 container mx-auto">
   <div className="navbar-start">
     <div className="dropdown">
       <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -62,7 +62,7 @@ const Navigation = () => {
   <div className="navbar-end">
   <div className="navbar-center hidden lg:flex font-semibold">
   <div className="flex-none">
-            <ul className="menu menu-horizontal p-0 text-lg text-sky-600">
+            <ul className="menu menu-horizontal p-0 text-md text-sky-600">
               <li>
                 <Link to="/home">HOME</Link>
               </li>
@@ -99,10 +99,10 @@ const Navigation = () => {
             </div>
             }
             {
-              user&&<div className="flex items center">
+              user&&<div className="flex items-center">
               <div
               onClick={logOut}
-                  className="bg-purple-700 hidden md:block cursor-pointer py-3 px-6 mx-2 rounded-full text-white"
+                  className="bg-pink-700 hidden md:block cursor-pointer py-2 px-4 mx-2 rounded-full text-white"
                 >
                   Logout
                 </div>

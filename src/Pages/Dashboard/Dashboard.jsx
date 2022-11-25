@@ -1,8 +1,12 @@
-import React from 'react'
+import userEvent from '@testing-library/user-event'
+import React, { useEffect } from 'react'
 
 const Dashboard = () => {
+
+  
   return (
-    <div>Dashboard</div>
+    <div>
+    </div>
   )
 }
 

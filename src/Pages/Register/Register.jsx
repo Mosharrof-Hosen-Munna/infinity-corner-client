@@ -6,7 +6,6 @@ import useAuth from "../../Hooks/useAuth";
 import axios from "axios";
 import { Dna } from "react-loader-spinner";
 
-
 const Register = () => {
   const [registerData, setRegisterData] = useState({ role: "buyer" });
   const [image, setImage] = useState(null);
@@ -49,8 +48,6 @@ const Register = () => {
 
   // handle email registration function
   const handleEmailRegistration = async (e) => {
-    
-    
     e.preventDefault();
 
     const errorMessage = validationRegister(
@@ -96,9 +93,9 @@ const Register = () => {
               name: registerData?.name,
               email: result.user.email,
               uid: result.user.uid,
-              photoUrl: result.user.photoURL,
+              photoUrl: imageUrl,
               role: registerData.role,
-              isVerified: false
+              isVerified: false,
             };
             // get jwt token
             await axios
@@ -126,22 +123,22 @@ const Register = () => {
   const signInGoogle = () => {
     setLoading(true);
     handleGoogleSignIn()
-      .then(async(result) => {
+      .then(async (result) => {
         const newUser = {
           name: result.user.displayName,
           email: result.user.email,
           uid: result.user.uid,
           photoUrl: result.user.photoURL,
-          role:'buyer',
-          isVerified: false
+          role: "buyer",
+          isVerified: false,
         };
         // get jwt token
         await axios
-        .post("http://localhost:5000/api/jwt", newUser)
-        .then((res) => {
-          localStorage.setItem("token", res.data.token);
-        })
-        .catch((err) => console.log(err));
+          .post("http://localhost:5000/api/jwt", newUser)
+          .then((res) => {
+            localStorage.setItem("token", res.data.token);
+          })
+          .catch((err) => console.log(err));
         saveGoogleUserToDatabase(newUser);
         navigate(from, { replace: true });
       })
@@ -150,18 +147,20 @@ const Register = () => {
   };
 
   if (loading) {
-   return <div className="container mx-auto ">
-      <div className="flex justify-center items-center py-48">
-        <Dna
-          visible={true}
-          height="250"
-          width="250"
-          ariaLabel="dna-loading"
-          wrapperStyle={{}}
-          wrapperClass="dna-wrapper"
-        />
+    return (
+      <div className="container mx-auto ">
+        <div className="flex justify-center items-center py-48">
+          <Dna
+            visible={true}
+            height="250"
+            width="250"
+            ariaLabel="dna-loading"
+            wrapperStyle={{}}
+            wrapperClass="dna-wrapper"
+          />
+        </div>
       </div>
-    </div>;
+    );
   }
 
   return (
@@ -218,8 +217,8 @@ const Register = () => {
                           name="role"
                           onChange={handleOnChange}
                         >
-                          <option value='buyer'>Buyer</option>
-                          <option value='seller'>Seller</option>
+                          <option value="buyer">Buyer</option>
+                          <option value="seller">Seller</option>
                         </select>
                       </div>
                       <div className="mb-4">
@@ -265,6 +264,7 @@ const Register = () => {
                             class="hidden"
                             onChange={(e) => setImage(e.target.files[0])}
                             name="image"
+                            accept="image/*"
                           />
                         </label>
                       </div>
