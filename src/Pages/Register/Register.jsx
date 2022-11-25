@@ -8,7 +8,7 @@ import { Dna } from "react-loader-spinner";
 
 
 const Register = () => {
-  const [registerData, setRegisterData] = useState({ role: "Buyer" });
+  const [registerData, setRegisterData] = useState({ role: "buyer" });
   const [image, setImage] = useState(null);
   const [error, setError] = useState({});
 
@@ -97,6 +97,8 @@ const Register = () => {
               email: result.user.email,
               uid: result.user.uid,
               photoUrl: result.user.photoURL,
+              role: registerData.role,
+              isVerified: false
             };
             // get jwt token
             await axios
@@ -106,7 +108,7 @@ const Register = () => {
               })
               .catch((err) => console.log(err));
 
-            // saveUserToDatabase(newUser);
+            saveUserToDatabase(newUser);
             setUser(LoginUser);
             console.log(user);
             navigate(from, { replace: true });
@@ -130,6 +132,8 @@ const Register = () => {
           email: result.user.email,
           uid: result.user.uid,
           photoUrl: result.user.photoURL,
+          role:'buyer',
+          isVerified: false
         };
         // get jwt token
         await axios
@@ -138,7 +142,7 @@ const Register = () => {
           localStorage.setItem("token", res.data.token);
         })
         .catch((err) => console.log(err));
-        // saveGoogleUserToDatabase(newUser);
+        saveGoogleUserToDatabase(newUser);
         navigate(from, { replace: true });
       })
       .catch((error) => console.log(error.message))
@@ -214,8 +218,8 @@ const Register = () => {
                           name="role"
                           onChange={handleOnChange}
                         >
-                          <option>Buyer</option>
-                          <option>Seller</option>
+                          <option value='buyer'>Buyer</option>
+                          <option value='seller'>Seller</option>
                         </select>
                       </div>
                       <div className="mb-4">

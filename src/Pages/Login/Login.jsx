@@ -47,7 +47,6 @@ const Login = () => {
             photoUrl: result.user.photoURL,
           };
           console.log(result.user);
-
           // get jwt token
           await axios
             .post("http://localhost:5000/api/jwt", newUser)
@@ -74,6 +73,9 @@ const Login = () => {
           email: result.user.email,
           uid: result.user.uid,
           photoUrl: result.user.photoURL,
+          role: 'buyer',
+          isVerified: false
+
         };
         // get jwt token
         await axios
@@ -82,10 +84,14 @@ const Login = () => {
             localStorage.setItem("token", res.data.token);
           })
           .catch((err) => console.log(err));
-        // saveGoogleUserToDatabase(newUser);
+        saveGoogleUserToDatabase(newUser);
         navigate(from, { replace: true });
+        setLoading(false);
       })
-      .catch((error) => console.log(error.message))
+      .catch((error) => {
+        setLoading(false);
+        
+        console.log(error.message)})
       .finally(() => setLoading(false));
   };
 

@@ -43,8 +43,31 @@ const useFirebase = () => {
     
   };
 
+ useEffect(()=>{
+
+  if(user?.databaseUser) {
+    return
+  }
+  if(user){
+    setLoading(true)
+    const url = `${process.env.REACT_APP_API_BASE_URL}/api/user/${user.email}`
+    axios.get(url)
+    .then(res=>{
+      setUser({...user,databaseUser:res.data})
+      setLoading(false)
+      console.log(user)
+      console.log(res.data)
+    })
+      
+    .catch(err=>{
+      setLoading(false)
+      console.log(err)})
+    
+  }
+ },[user])
+
   const saveGoogleUserToDatabase = (user) => {
-    const url = `https://pickypro-server.vercel.app/api/user/create`;
+    const url = `${process.env.REACT_APP_API_BASE_URL}/api/user/create`;
     axios
       .put(url, user)
       .then((res) => {})
@@ -52,7 +75,7 @@ const useFirebase = () => {
   };
 
   const saveUserToDatabase = (user) => {
-    const url = `https://pickypro-server.vercel.app/api/user/create`;
+    const url = `${process.env.REACT_APP_API_BASE_URL}/api/user/create`;
     axios
       .post(url, user)
       .then((res) => {})
@@ -67,18 +90,29 @@ const useFirebase = () => {
         if(localStorage.getItem('token')){
           localStorage.removeItem('token')
         }
+        setLoading(false)
+      })
+      .catch(err=>{
+        setLoading(false)
+        console.log(err)
       })
       .finally(() => setLoading(false));
+      setLoading(false)
   };
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUser(user);
+    onAuthStateChanged(auth, (userInfo) => {
+      if (userInfo) {
+        setUser(userInfo);
+        if(user.databaseUser){
+        setLoading(false);
+        }
       } else {
         setUser(null);
+        setLoading(false);
       }
       setLoading(false);
+
     });
   }, [auth]);
 

@@ -73,6 +73,11 @@ const Navigation = () => {
               <li>
                 <Link to="/blog">BLOG</Link>
               </li>
+              {
+                user&&<li>
+                <Link to="/dashboard">DASHBOARD</Link>
+              </li>
+              }
             </ul>
           </div>
   </div>
