@@ -36,7 +36,7 @@ const Navigation = () => {
               </Link></li>
               <li> <Link
                 to="/register"
-                className="bg-sky-500 py-3 px-6 mx-2 rounded-full text-white"
+                className="bg-infinity py-3 px-6 mx-2 rounded-full text-white"
               >
                 Signup
               </Link></li></>
@@ -55,14 +55,14 @@ const Navigation = () => {
     </div>
     <div className="flex">
             <Link to='/' className=" normal-case text-cyan-700 text-4xl font-bold">
-              Infinity<span className="text-sky-500">Corner</span>
+              Infinity<span className="text-infinity">Corner</span>
             </Link>
           </div>
   </div>
   <div className="navbar-end">
   <div className="navbar-center hidden lg:flex font-semibold">
   <div className="flex-none">
-            <ul className="menu menu-horizontal p-0 text-md text-sky-600">
+            <ul className="menu menu-horizontal p-0 text-md text-infinity">
               <li>
                 <Link to="/home">HOME</Link>
               </li>
@@ -86,7 +86,7 @@ const Navigation = () => {
               !user&&<div className="text-lg hidden md:block">
               <Link
                 to="/login"
-                className="bg-sky-500  py-2 px-4 mx-2 rounded-full text-white"
+                className="bg-infinity  py-2 px-4 mx-2 rounded-full text-white"
               >
                 LOGIN
               </Link>

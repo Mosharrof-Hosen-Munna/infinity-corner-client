@@ -27,7 +27,7 @@ const DashboardLayout = () => {
         <div className="md:flex">
           <div style={{}}  className="md:w-1/4 bg-white min-h-screen">
             <nav className="py-4">
-              <h1 className="text-3xl ml-3 font-semibold mb-4 text-sky-600">
+              <h1 className="text-3xl ml-3 font-semibold mb-4 text-infinity">
                 Dashboard
               </h1>
               <ul className="">
@@ -37,8 +37,8 @@ const DashboardLayout = () => {
                       to={`/dashboard/my-orders`}
                       className={({ isActive }) =>
                         isActive
-                          ? "border-red-400 border-l-8 text-white bg-sky-500 p-3 my-1 inline-block w-full  cursor-pointer shadow-md    font-semibold text-lg"
-                          : "p-3 my-1 inline-block w-full bg-white cursor-pointer shadow-md hover:bg-sky-500 hover:border-l-8 border-red-400 hover:text-white duration-300 font-semibold text-lg"
+                          ? "border-red-400 border-l-8 text-white bg-infinity p-3 my-1 inline-block w-full  cursor-pointer shadow-md    font-semibold text-lg"
+                          : "p-3 my-1 inline-block w-full bg-white cursor-pointer shadow-md hover:bg-infinity hover:border-l-8 border-red-400 hover:text-white duration-300 font-semibold text-lg"
                       }
                     >
                       My Orders
@@ -53,8 +53,8 @@ const DashboardLayout = () => {
                       to={`/dashboard/add-product`}
                       className={({ isActive }) =>
                         isActive
-                          ? "border-red-400 border-l-8 text-white bg-sky-500 p-3 my-1 inline-block w-full  cursor-pointer shadow-md    font-semibold text-lg"
-                          : "p-3 my-1 inline-block w-full bg-white cursor-pointer shadow-md hover:bg-sky-500 hover:border-l-8 border-red-400 hover:text-white duration-300 font-semibold text-lg"
+                          ? "border-red-400 border-l-8 text-white bg-infinity p-3 my-1 inline-block w-full  cursor-pointer shadow-md    font-semibold text-lg"
+                          : "p-3 my-1 inline-block w-full bg-white cursor-pointer shadow-md hover:bg-infinity hover:border-l-8 border-red-400 hover:text-white duration-300 font-semibold text-lg"
                       }
                     >
                      Add A Product
@@ -65,8 +65,8 @@ const DashboardLayout = () => {
                       to={`/dashboard/my-products`}
                       className={({ isActive }) =>
                         isActive
-                          ? "border-red-400 border-l-8 text-white bg-sky-500 p-3 my-1 inline-block w-full  cursor-pointer shadow-md    font-semibold text-lg"
-                          : "p-3 my-1 inline-block w-full bg-white cursor-pointer shadow-md hover:bg-sky-500 hover:border-l-8 border-red-400 hover:text-white duration-300 font-semibold text-lg"
+                          ? "border-red-400 border-l-8 text-white bg-infinity p-3 my-1 inline-block w-full  cursor-pointer shadow-md    font-semibold text-lg"
+                          : "p-3 my-1 inline-block w-full bg-white cursor-pointer shadow-md hover:bg-infinity hover:border-l-8 border-red-400 hover:text-white duration-300 font-semibold text-lg"
                       }
                     >
                      My Products
@@ -80,8 +80,8 @@ const DashboardLayout = () => {
                       to={`/dashboard/all-sellers`}
                       className={({ isActive }) =>
                         isActive
-                          ? "border-red-400 border-l-8 text-white bg-sky-500 p-3 my-1 inline-block w-full  cursor-pointer shadow-md    font-semibold text-lg"
-                          : "p-3 my-1 inline-block w-full bg-white cursor-pointer shadow-md hover:bg-sky-500 hover:border-l-8 border-red-400 hover:text-white duration-300 font-semibold text-lg"
+                          ? "border-red-400 border-l-8 text-white bg-infinity p-3 my-1 inline-block w-full  cursor-pointer shadow-md    font-semibold text-lg"
+                          : "p-3 my-1 inline-block w-full bg-white cursor-pointer shadow-md hover:bg-infinity hover:border-l-8 border-red-400 hover:text-white duration-300 font-semibold text-lg"
                       }
                     >
                      All Sellers
@@ -92,8 +92,8 @@ const DashboardLayout = () => {
                       to={`/dashboard/all-buyers`}
                       className={({ isActive }) =>
                         isActive
-                          ? "border-red-400 border-l-8 text-white bg-sky-500 p-3 my-1 inline-block w-full  cursor-pointer shadow-md    font-semibold text-lg"
-                          : "p-3 my-1 inline-block w-full bg-white cursor-pointer shadow-md hover:bg-sky-500 hover:border-l-8 border-red-400 hover:text-white duration-300 font-semibold text-lg"
+                          ? "border-red-400 border-l-8 text-white bg-infinity p-3 my-1 inline-block w-full  cursor-pointer shadow-md    font-semibold text-lg"
+                          : "p-3 my-1 inline-block w-full bg-white cursor-pointer shadow-md hover:bg-infinity hover:border-l-8 border-red-400 hover:text-white duration-300 font-semibold text-lg"
                       }
                     >
                      All Buyers
@@ -104,8 +104,8 @@ const DashboardLayout = () => {
                       to={`/dashboard/reported-product`}
                       className={({ isActive }) =>
                         isActive
-                          ? "border-red-400 border-l-8 text-white bg-sky-500 p-3 my-1 inline-block w-full  cursor-pointer shadow-md    font-semibold text-lg"
-                          : "p-3 my-1 inline-block w-full bg-white cursor-pointer shadow-md hover:bg-sky-500 hover:border-l-8 border-red-400 hover:text-white duration-300 font-semibold text-lg"
+                          ? "border-red-400 border-l-8 text-white bg-infinity p-3 my-1 inline-block w-full  cursor-pointer shadow-md    font-semibold text-lg"
+                          : "p-3 my-1 inline-block w-full bg-white cursor-pointer shadow-md hover:bg-infinity hover:border-l-8 border-red-400 hover:text-white duration-300 font-semibold text-lg"
                       }
                     >
                      Reported Product

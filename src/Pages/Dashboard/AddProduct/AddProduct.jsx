@@ -68,7 +68,7 @@ const AddProduct = () => {
     <section className="my-8 ">
       <div className="mx-auto">
         <div className="card w-2/3 mx-auto bg-slate-50 p-4">
-          <h1 className="text-center text-3xl font-semibold my-3 text-sky-500">
+          <h1 className="text-center text-3xl font-semibold my-3 text-infinity">
             Add A New Product
           </h1>
           <form onSubmit={handleFormSubmit}>
@@ -206,7 +206,7 @@ const AddProduct = () => {
             </div>
             <div className="text-center">
               <button
-                className="inline-block  bg-sky-500 px-6 py-2.5 text-white font-medium text-lg leading-tight uppercase rounded shadow-md  hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-1/2 mb-3"
+                className="inline-block  bg-infinity px-6 py-2.5 text-white font-medium text-lg leading-tight uppercase rounded shadow-md  hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-1/2 mb-3"
                 type="submit"
                 data-mdb-ripple="true"
                 data-mdb-ripple-color="light"

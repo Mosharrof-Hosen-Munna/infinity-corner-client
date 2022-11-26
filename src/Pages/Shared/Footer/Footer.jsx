@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const Footer = () => {
   return (
     <div className=''>
-            <footer className="text-center lg:text-left bg-sky-200 text-gray-600">
+            <footer className="text-center lg:text-left bg-infinity text-white">
                 <div className="flex justify-center items-center lg:justify-between p-6 border-b border-gray-300">
                     <div className="mr-12 hidden lg:block">
                         <span>Get connected with us on social networks:</span>
@@ -93,16 +93,16 @@ const Footer = () => {
                                 Our Services
                             </h6>
                             <p className="mb-4">
-                                <Link className="text-gray-600">Burst pipes</Link>
+                                <Link className="">Burst pipes</Link>
                             </p>
                             <p className="mb-4">
-                                <Link className="text-gray-600">Emergency plumbing services</Link>
+                                <Link className="">Emergency plumbing services</Link>
                             </p>
                             <p className="mb-4">
-                                <Link className="text-gray-600">Leak Detection</Link>
+                                <Link className="">Leak Detection</Link>
                             </p>
                             <p>
-                                <Link className="text-gray-600">Gas line repair</Link>
+                                <Link className="">Gas line repair</Link>
                             </p>
                         </div>
                         <div className="">
@@ -110,18 +110,18 @@ const Footer = () => {
                                 More to come
                             </h6>
                             <p className="mb-4">
-                                <a href="#!" className="text-gray-600">Electric water heaters</a>
+                                <a href="#!" className="">Electric water heaters</a>
                             </p>
                             <p className="mb-4">
-                                <a href="#!" className="text-gray-600">Slab leak detection and repair
+                                <a href="#!" className="">Slab leak detection and repair
                                 </a>
                             </p>
                             <p className="mb-4">
-                                <a href="#!" className="text-gray-600">Gas line repair
+                                <a href="#!" className="">Gas line repair
                                 </a>
                             </p>
                             <p>
-                                <a href="#!" className="text-gray-600">Electric water heaters</a>
+                                <a href="#!" className="">Electric water heaters</a>
                             </p>
                         </div>
                         <div className="">
@@ -170,9 +170,9 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <div className="text-center p-6 bg-sky-200">
+                <div className="text-center p-6 bg-infinity text-white">
                     <span>© 2021 Copyright:</span>
-                    <a className="text-gray-600 font-semibold" href="#_">Truss Plumbing</a>
+                    <a className=" font-semibold" href="#_">Truss Plumbing</a>
                 </div>
             </footer>
         </div>

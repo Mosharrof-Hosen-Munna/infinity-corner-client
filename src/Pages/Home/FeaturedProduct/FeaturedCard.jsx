@@ -13,11 +13,11 @@ const FeaturedCard = () => {
           alt=""
           className="w-full rounded-t-md "
         />
-        <span className="bg-sky-500  px-4  text-white font-semibold absolute top-0">
+        <span className="bg-infinity  px-4  text-white font-semibold absolute top-0">
           Featured
         </span>
       </div>
-      <div className="p-2">
+      <div className="p-2 mt-2">
         <div className="flex items-start mb-1">
           <div className="avatar">
             <div className="w-5 rounded-full">
@@ -26,7 +26,7 @@ const FeaturedCard = () => {
           </div>
           <div className="flex items-center justify-between w-full">
             <h1 className="text-sm ml-1">Mosharrof Hosen Munna</h1>
-            <Moment className="text-sm ml-1" fromNow>2022-04-19T12:59-0500</Moment>
+            <Moment className="text-xs ml-1 text-gray-500" fromNow>2022-04-19T12:59-0500</Moment>
           </div>
         </div>
 
@@ -40,7 +40,7 @@ const FeaturedCard = () => {
         </div>
         <div className="flex justify-between items-center">
           <div>
-            <span className="text-sky-600 text-lg font-semibold">50$</span>
+            <span className="text-infinity text-lg font-semibold">50$</span>
             <span className="text-sm line-through">(100$)</span>
           </div>
           <div className="text-sm">excellent</div>

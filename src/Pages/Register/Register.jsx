@@ -271,7 +271,7 @@ const Register = () => {
 
                       <div className="text-center pt-1  pb-1">
                         <button
-                          className="inline-block  bg-sky-500 px-6 py-2.5 text-white font-medium text-lg leading-tight uppercase rounded shadow-md  hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3"
+                          className="inline-block  bg-infinity px-6 py-2.5 text-white font-medium text-lg leading-tight uppercase rounded shadow-md  hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3"
                           type="submit"
                           data-mdb-ripple="true"
                           data-mdb-ripple-color="light"
@@ -297,7 +297,7 @@ const Register = () => {
                       <Link to="/register">
                         <button
                           type="button"
-                          className="inline-block px-6 py-2 border-2 border-sky-600 text-sky-600 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+                          className="inline-block px-6 py-2 border-2 border-sky-600 text-infinity font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
                           data-mdb-ripple="true"
                           data-mdb-ripple-color="light"
                         >
