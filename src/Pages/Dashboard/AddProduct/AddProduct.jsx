@@ -43,7 +43,7 @@ const AddProduct = () => {
           sellerPhoto: user.photoUrl,
           sellerEmail: user.email,
           isVerified: user.databaseUser.isVerified,
-          isAdvertise: false
+          isAdvertise: false,
         }
 
         try{
