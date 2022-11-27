@@ -7,7 +7,7 @@ import FeaturedCard from './FeaturedCard'
 const FeaturedProduct = () => {
   const {user} = useAuth()
 
-  const url = `${process.env.REACT_APP_API_BASE_URL}/api/products/seller/${user.email}`;
+  const url = `${process.env.REACT_APP_API_BASE_URL}/api/products/seller/${user?.email}`;
   const { data: featuredProduct = [], refetch } = useQuery({
     queryKey: ["featuredProduct", user],
     queryFn: async () => {
