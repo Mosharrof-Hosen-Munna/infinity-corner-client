@@ -29,26 +29,7 @@ const PurchaseModal = ({product,setShowModal}) => {
       const order = {
         ...orderData,
         createAt: new Date(),
-       orderProduct:  {
-        "_id": "6380b63f6852ee5cbe8c0733",
-        "category": "macbook",
-        "condition": "excellent",
-        "productName": "macbook",
-        "originalPrice": "100",
-        "resalePrice": "50",
-        "number": "+8801986116253",
-        "location": "Dhaka",
-        "purchaseDate": "2020",
-        "yearsOfUse": "2",
-        "descriptions": "good",
-        "imageUrl": "https://i.ibb.co/5KRSvYb/IMG-20220617-154113-1.jpg",
-        "createdAt": "2022-11-25T12:34:07.794Z",
-        "isAvailable": true,
-        "sellerName": "Mosharrof Hosen Munna",
-        "sellerEmail": "munna100@gmail.com",
-        "isVerified": true
-      },
-
+       orderProduct:  product
       }
 
       const data = await saveNewOrder(order)

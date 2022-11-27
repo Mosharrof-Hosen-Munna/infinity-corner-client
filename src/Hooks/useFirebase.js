@@ -8,6 +8,9 @@ import {
   createUserWithEmailAndPassword,
   updateProfile,
   signInWithEmailAndPassword,
+  deleteUser,
+  
+  
 } from "firebase/auth";
 import { useEffect, useState } from "react";
 import initializeAuthentication from "../Firebase/firebase.init";
@@ -34,6 +37,8 @@ const useFirebase = () => {
   const handleEmailPasswordLogin = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
+
+
 
   const setUserName = (name, photoURL) => {
     

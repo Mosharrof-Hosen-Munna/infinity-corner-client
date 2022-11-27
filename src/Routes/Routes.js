@@ -4,6 +4,7 @@ import DashboardLayout from "../Layout/DashboardLayout";
 import Main from "../Layout/Main";
 import CategoryProduct from "../Pages/CategoryProduct/CategoryProduct";
 import AddProduct from "../Pages/Dashboard/AddProduct/AddProduct";
+import AllBuyer from "../Pages/Dashboard/AllBuyer/AllBuyer";
 import AllSeller from "../Pages/Dashboard/AllSeller/AllSeller";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import MyProducts from "../Pages/Dashboard/MyProducts/MyProducts";
@@ -77,7 +78,7 @@ const Routes = createBrowserRouter([
       },
       {
         path: "/dashboard/all-buyers",
-        element: <Dashboard />,
+        element: <AllBuyer   />,
       },
       {
         path: "/dashboard/reported-product",
