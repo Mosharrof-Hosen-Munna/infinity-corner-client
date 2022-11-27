@@ -10,21 +10,23 @@ const useProduct = () => {
     return res.data;
   };
 
-  const LoadCategoryProducts = async (categoryName) => {
-    const url = `${process.env.REACT_APP_API_BASE_URL}/api/products/category/${categoryName}`;
-    const { data: categoryProducts = [], refetch } = useQuery({
-      queryKey: ["allproducts"],
-      queryFn: async () => {
-        const res = await axios.get(url);
-        return res.data;
-      },
-    });
-    return { categoryProducts };
+  const deleteProduct = async (id) => {
+    const url = `${process.env.REACT_APP_API_BASE_URL}/api/product/delete/${id}`;
+    const res = await axios.delete(url);
+  
+    return res.data;
   };
+
+  const adverticeProduct = async(id)=>{
+    const url = `${process.env.REACT_APP_API_BASE_URL}/api/product/advertised/${id}`;
+    const res = await axios.get(url)
+    return res.data
+  }
 
   return {
     createProduct,
-    LoadCategoryProducts,
+    deleteProduct,
+    adverticeProduct
   };
 };
 

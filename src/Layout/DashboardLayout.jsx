@@ -25,7 +25,7 @@ const DashboardLayout = () => {
     <section  className="bg-slate-100   overflow-hidden">
       <div className="">
         <div className="md:flex">
-          <div style={{}}  className="md:w-1/4 bg-white min-h-screen">
+          <div style={{}}  className="md:w-1/4 bg-white md:min-h-screen">
             <nav className="py-4">
               <h1 className="text-3xl ml-3 font-semibold mb-4 text-infinity">
                 Dashboard

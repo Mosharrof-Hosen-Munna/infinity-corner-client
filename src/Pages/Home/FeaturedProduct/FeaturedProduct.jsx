@@ -1,7 +1,20 @@
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 import React from 'react'
+import useAuth from '../../../Hooks/useAuth';
 import FeaturedCard from './FeaturedCard'
 
 const FeaturedProduct = () => {
+  const {user} = useAuth()
+
+  const url = `${process.env.REACT_APP_API_BASE_URL}/api/products/seller/${user.email}`;
+  const { data: featuredProduct = [], refetch } = useQuery({
+    queryKey: ["featuredProduct", user],
+    queryFn: async () => {
+      const res = await axios.get(url);
+      return res.data;
+    },
+  });
   return (
     <section className='py-24 bg-slate-50'>
         <div className="container mx-auto">

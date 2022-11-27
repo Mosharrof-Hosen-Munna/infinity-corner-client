@@ -4,14 +4,14 @@ import Moment from 'react-moment';
 
 const FeaturedCard = () => {
   return (
-    <div className="bg-white p-2 rounded-t-md shadow-md shadow-slate-200">
+    <div className="bg-white p-2 rounded-t-md shadow-md shadow-slate-200 ">
       <Link>
       
       <div className="relative">
         <img
           src="https://demo.spoonthemes.net/themes/adifier/wp-content/uploads/2018/02/adr-22-355x250.jpg"
           alt=""
-          className="w-full rounded-t-md "
+          className="w-full rounded-t-md h-64 "
         />
         <span className="bg-infinity  px-4  text-white font-semibold absolute top-0">
           Featured

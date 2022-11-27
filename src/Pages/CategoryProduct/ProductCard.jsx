@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Moment from "react-moment";
 
 const ProductCard = ({ product, setShowModal, showModal, setProduct }) => {
@@ -23,9 +22,9 @@ const ProductCard = ({ product, setShowModal, showModal, setProduct }) => {
     sellerPhoto
   } = product;
   return (
-    <div className="bg-white p-2 rounded-t-md shadow-md shadow-slate-200">
+    <div className="bg-white p-2  rounded-t-md shadow-md shadow-slate-200">
       <div>
-        <img src={imageUrl} alt="" className="w-full rounded-t-md " />
+        <img src={imageUrl} alt="" className="w-full rounded-t-md h-64" />
       </div>
       <div className="p-2 mt-2">
         <div className="flex items-start mb-1">

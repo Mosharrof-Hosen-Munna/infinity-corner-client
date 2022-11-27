@@ -40,7 +40,7 @@ const AddProduct = () => {
           createdAt: new Date(),
           isAvailable: true,
           sellerName: user.displayName,
-          sellerPhoto: user.photoUrl,
+          sellerPhoto: user.photoURL,
           sellerEmail: user.email,
           isVerified: user.databaseUser.isVerified,
           isAdvertise: false,

@@ -5,6 +5,7 @@ import Main from "../Layout/Main";
 import CategoryProduct from "../Pages/CategoryProduct/CategoryProduct";
 import AddProduct from "../Pages/Dashboard/AddProduct/AddProduct";
 import Dashboard from "../Pages/Dashboard/Dashboard";
+import MyProducts from "../Pages/Dashboard/MyProducts/MyProducts";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import NotFound from "../Pages/NotFound/NotFound";
@@ -67,7 +68,7 @@ const Routes = createBrowserRouter([
       },
       {
         path: "/dashboard/my-products",
-        element: <Dashboard />,
+        element: <MyProducts />,
       },
       {
         path: "/dashboard/all-sellers",
