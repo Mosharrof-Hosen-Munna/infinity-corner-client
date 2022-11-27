@@ -1,9 +1,15 @@
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import useAuth from "../../Hooks/useAuth";
+import useOrder from "../../Hooks/useOrder";
+import useProduct from "../../Hooks/useProduct";
 
-const PurchaseModal = ({product}) => {
+const PurchaseModal = ({product,setShowModal}) => {
   const {user } = useAuth()
   const [orderData,setOrderData] = useState({})
+  const {saveNewOrder} = useOrder()
+
 
 
     const handleOnChange = (e) => {
@@ -13,14 +19,41 @@ const PurchaseModal = ({product}) => {
       newOrderData[field] = value;
       setOrderData(newOrderData);
     };
+   
+    
   
 
-    const handleSubmit = ()=>{
+    const handleSubmit = async(e)=>{
+      e.preventDefault()
+      console.log('asdfas')
       const order = {
         ...orderData,
         createAt: new Date(),
-       orderProduct:  product,
+       orderProduct:  {
+        "_id": "6380b63f6852ee5cbe8c0733",
+        "category": "macbook",
+        "condition": "excellent",
+        "productName": "macbook",
+        "originalPrice": "100",
+        "resalePrice": "50",
+        "number": "+8801986116253",
+        "location": "Dhaka",
+        "purchaseDate": "2020",
+        "yearsOfUse": "2",
+        "descriptions": "good",
+        "imageUrl": "https://i.ibb.co/5KRSvYb/IMG-20220617-154113-1.jpg",
+        "createdAt": "2022-11-25T12:34:07.794Z",
+        "isAvailable": true,
+        "sellerName": "Mosharrof Hosen Munna",
+        "sellerEmail": "munna100@gmail.com",
+        "isVerified": true
+      },
 
+      }
+
+      const data = await saveNewOrder(order)
+      if(data.insertedId){
+        setShowModal(false)
       }
     }
 
@@ -41,7 +74,7 @@ const PurchaseModal = ({product}) => {
           >
             ✕
           </label>
-          <h3 className="text-lg font-bold">{"name"}</h3>
+          <h3 className="text-lg font-bold">{product.productName}</h3>
           <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-y-3">
             <input
               type="text"
@@ -59,7 +92,7 @@ const PurchaseModal = ({product}) => {
             />
             <input
               name="price"
-              value={'resalePrice'}
+              value={product.resalePrice}
               disabled
               type="number"
               className="input w-full shadow-lg"
@@ -83,7 +116,6 @@ const PurchaseModal = ({product}) => {
             <input
               type="submit"
               className="inline-block  bg-infinity px-4 py-2 text-white font-medium text-md leading-tight uppercase rounded shadow-md  hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out  "
-              value="Order"
             />
           </form>
         </div>

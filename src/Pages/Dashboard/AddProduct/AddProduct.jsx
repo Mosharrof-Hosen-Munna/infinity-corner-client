@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import useAuth from "../../../Hooks/useAuth";
 import useProduct from "../../../Hooks/useProduct";
 import InputField from "./InputField";
@@ -45,6 +45,7 @@ const AddProduct = () => {
           isVerified: user.databaseUser.isVerified,
           isAdvertise: false,
         }
+      
 
         try{
           const data =await createProduct(productObj)
