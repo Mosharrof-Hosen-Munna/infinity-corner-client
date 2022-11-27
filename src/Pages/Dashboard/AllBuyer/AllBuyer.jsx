@@ -1,3 +1,4 @@
+import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import React from 'react'
 import useAuth from '../../../Hooks/useAuth';
@@ -17,7 +18,7 @@ const AllBuyer = () => {
     });
   
     
-    const handleDelete = async(id,user)=>{
+    const handleDelete = async(id)=>{
       const res = await deleteUser(id)
       refetch()
     }
@@ -40,7 +41,7 @@ const AllBuyer = () => {
                     <div className="avatar">
                       <div className="mask mask-squircle w-12 h-12">
                         <img
-                          src="https://lh3.googleusercontent.com/a/ALm5wu2Qx3jLDMqh2V0OohPI0wyG_tg82XyTr2sC5K6Q=s96-c"
+                          src={buyer.photoUrl}
                           alt="Avatar Tailwind CSS Component"
                         />
                       </div>
@@ -61,7 +62,7 @@ const AllBuyer = () => {
                 <button  className="inline-block  bg-red-600  p-2 text-white font-medium  leading-tight uppercase rounded shadow-md  hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg mr-2 transition duration-150 ease-in-out "
                 type="button"
                 data-mdb-ripple="true"
-                onClick={()=>handleDelete(buyer._id,seller)}
+                onClick={()=>handleDelete(buyer._id)}
                 data-mdb-ripple-color="light">
                       Delete
                 </button>

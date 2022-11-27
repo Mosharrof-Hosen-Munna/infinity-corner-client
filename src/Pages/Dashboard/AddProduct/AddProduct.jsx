@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
 import useProduct from "../../../Hooks/useProduct";
 import InputField from "./InputField";
@@ -10,6 +11,7 @@ const AddProduct = () => {
 
   const {user} = useAuth()
   const {createProduct} = useProduct()
+  const navigate = useNavigate()
 
   const handleOnChange = (e) => {
     const field = e.target.name;
@@ -53,6 +55,7 @@ const AddProduct = () => {
             e.target.reset()
             setProductData({category: 'macbook', condition:'excellent'})
             setImage(null)
+            navigate('/dashboard/my-products')
           }
           console.log(data)
         }catch(e){

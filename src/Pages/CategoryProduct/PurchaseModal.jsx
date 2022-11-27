@@ -35,6 +35,7 @@ const PurchaseModal = ({product,setShowModal}) => {
       const data = await saveNewOrder(order)
       if(data.insertedId){
         setShowModal(false)
+        e.target.reset()
       }
     }
 

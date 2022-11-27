@@ -1,7 +1,7 @@
 import React from "react";
 import Moment from "react-moment";
 
-const ProductCard = ({ product, setShowModal, showModal, setProduct }) => {
+const ProductCard = ({ product, setShowModal, showModal, setProduct,isFeatured }) => {
   const {
     category,
     condition,
@@ -19,12 +19,15 @@ const ProductCard = ({ product, setShowModal, showModal, setProduct }) => {
     _id,
     originalPrice,
     productName,
-    sellerPhoto
+    sellerPhoto,
   } = product;
   return (
     <div className="bg-white p-2  rounded-t-md shadow-md shadow-slate-200">
-      <div>
-        <img src={imageUrl} alt="" className="w-full rounded-t-md h-64" />
+      <div className="relative">
+        <img src={imageUrl} alt="" className="w-full rounded-t-md h-64 " />
+        {isFeatured &&<span className="bg-infinity -ml-2  px-4  text-white font-semibold absolute top-0">
+          Featured
+        </span>}
       </div>
       <div className="p-2 mt-2">
         <div className="flex items-start mb-1">
@@ -34,7 +37,14 @@ const ProductCard = ({ product, setShowModal, showModal, setProduct }) => {
             </div>
           </div>
           <div className="flex items-center justify-between w-full">
-            <h1 className="text-sm ml-1">{sellerName}</h1>
+            <div className="flex">
+              <h1 className="text-sm mx-1">{sellerName} </h1>
+              {isVerified && <input
+                type="checkbox"
+                checked
+                className="checkbox checkbox-success cursor-default checkbox-xs"
+              />}
+            </div>
             <Moment className="text-xs ml-1 text-gray-500" fromNow>
               {createdAt}
             </Moment>

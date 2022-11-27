@@ -102,7 +102,7 @@ const Navigation = () => {
               user&&<div className="flex items-center">
               <div
               onClick={logOut}
-                  className="bg-pink-700 hidden md:block cursor-pointer py-2 px-4 mx-2 rounded-full text-white"
+                  className="bg-red-600 hidden md:block cursor-pointer py-2 px-4 mx-2 rounded-full text-white"
                 >
                   Logout
                 </div>

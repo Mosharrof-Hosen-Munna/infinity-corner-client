@@ -18,6 +18,8 @@ const AllSeller = () => {
     },
   });
 
+  console.log(allSeller)
+
   const handleVerify =async(email)=>{
     const data =await verifyUser(email)
     refetch()
@@ -44,11 +46,12 @@ const AllSeller = () => {
           <tbody>
             {allSeller && allSeller.map(seller=><tr>
               <td>
+            {console.log(seller)}
                 <div className="flex items-center space-x-3">
                   <div className="avatar">
                     <div className="mask mask-squircle w-12 h-12">
                       <img
-                        src="https://lh3.googleusercontent.com/a/ALm5wu2Qx3jLDMqh2V0OohPI0wyG_tg82XyTr2sC5K6Q=s96-c"
+                        src={seller.photoUrl}
                         alt="Avatar Tailwind CSS Component"
                       />
                     </div>
