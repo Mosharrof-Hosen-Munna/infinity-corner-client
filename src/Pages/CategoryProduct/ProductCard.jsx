@@ -1,7 +1,7 @@
 import React from "react";
 import Moment from "react-moment";
 
-const ProductCard = ({ product, setShowModal, showModal, setProduct,isFeatured }) => {
+const ProductCard = ({ product, setShowModal, showModal, setProduct,isFeatured ,handleReportProduct}) => {
   const {
     category,
     condition,
@@ -54,8 +54,8 @@ const ProductCard = ({ product, setShowModal, showModal, setProduct,isFeatured }
         <h1 className="text-xl font-semibold">{productName}</h1>
         <p className="text-xs text-gray-600">{descriptions}</p>
         <div className="flex items-center justify-between text-sm mt-1 text-gray-400">
-          <h3>{category}</h3>
-          <h3>{location}</h3>
+          <h3>Location: {location}</h3>
+          <h3>{isAvailable ? <span className="text-green-600 text-lg font-semibold">Available</span>: <span className="text-red-600 text-lg font-semibold">Sold*</span>}</h3>
         </div>
         <div className="flex justify-between items-center">
           <div>
@@ -66,7 +66,12 @@ const ProductCard = ({ product, setShowModal, showModal, setProduct,isFeatured }
           </div>
           <div className="text-sm">{condition}</div>
         </div>
-        <label
+        <div className="flex items-center justify-between">
+          <div onClick={()=>handleReportProduct(product)} className="text-lg cursor-pointer font-semibold text-red-600">
+            Report
+          </div>
+          <div>
+          {isAvailable &&<label
           onClick={() => {
             setProduct(product);
             setShowModal(true);
@@ -75,7 +80,14 @@ const ProductCard = ({ product, setShowModal, showModal, setProduct,isFeatured }
           className="inline-block  bg-infinity px-4 py-2 text-white font-medium text-md leading-tight uppercase rounded shadow-md cursor-pointer mt-2 float-right  hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out  mb-3"
         >
           PURCHASE NOW
-        </label>
+        </label>}
+       {!isAvailable&& <label
+          className="inline-block  bg-infinity px-4 py-2 text-white font-medium text-md leading-tight uppercase rounded shadow-md  mt-2 float-right  hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out cursor-not-allowed  mb-3"
+        >
+          Sold*
+        </label>}
+          </div>
+        </div>
       </div>
     </div>
   );

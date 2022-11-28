@@ -13,20 +13,27 @@ const useProduct = () => {
   const deleteProduct = async (id) => {
     const url = `${process.env.REACT_APP_API_BASE_URL}/api/product/delete/${id}`;
     const res = await axios.delete(url);
-  
+
     return res.data;
   };
 
-  const adverticeProduct = async(id)=>{
+  const adverticeProduct = async (id) => {
     const url = `${process.env.REACT_APP_API_BASE_URL}/api/product/advertised/${id}`;
-    const res = await axios.get(url)
-    return res.data
-  }
+    const res = await axios.get(url);
+    return res.data;
+  };
+
+  const createProductReport = async (data) => {
+    const url = `${process.env.REACT_APP_API_BASE_URL}/api/report-product/create`;
+    const res = await axios.post(url, data);
+    return res.data;
+  };
 
   return {
     createProduct,
     deleteProduct,
-    adverticeProduct
+    adverticeProduct,
+    createProductReport,
   };
 };
 

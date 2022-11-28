@@ -7,20 +7,22 @@ import PurchaseModal from "./PurchaseModal";
 
 const CategoryProduct = () => {
   const [showModal, setShowModal] = useState(false);
-  const [product,setProduct]= useState(null)
+  const [product, setProduct] = useState(null);
 
   const { categoryName } = useParams();
-  console.log(categoryName)
+  console.log(categoryName);
 
   const url = `${process.env.REACT_APP_API_BASE_URL}/api/products/category/${categoryName}`;
   const { data: categoryProducts = [], refetch } = useQuery({
-    queryKey: ["categoryProducts",categoryName],
+    queryKey: ["categoryProducts", categoryName],
     queryFn: async () => {
       const res = await axios.get(url);
-      return  res.data;
+      return res.data;
     },
   });
   console.log(categoryProducts);
+
+  const handleReportProduct = (product) => {};
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -29,12 +31,21 @@ const CategoryProduct = () => {
   return (
     <div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-       
-       {
-        categoryProducts&& categoryProducts.map(product=> <ProductCard setProduct={setProduct} showModal={showModal} key={product._id} product={product} setShowModal={setShowModal} />)
-       }
+        {categoryProducts &&
+          categoryProducts.map((product) => (
+            <ProductCard
+              setProduct={setProduct}
+              showModal={showModal}
+              key={product._id}
+              product={product}
+              setShowModal={setShowModal}
+              handleReportProduct={handleReportProduct}
+            />
+          ))}
       </div>
-      {showModal && <PurchaseModal product={product} setShowModal={setShowModal} />}
+      {showModal && (
+        <PurchaseModal product={product} setShowModal={setShowModal} />
+      )}
     </div>
   );
 };
