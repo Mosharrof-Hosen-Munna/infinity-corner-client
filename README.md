@@ -32,3 +32,6 @@ _Registration system using firebase_
   > Once the node_modules installed -
 - [x] run: npm start to start the application
       n
+
+- [x] Admin Email: mosharrofadmin@admin.com
+- [x] Admin Pass: mosharrofadmin

@@ -59,8 +59,8 @@ const AddProduct = () => {
             setImage(null)
             const productToast = toast('Product successfully added!')
             productToast()
-            navigate('/dashboard/my-products')
           }
+          navigate('/dashboard/my-products')
           console.log(data)
         }catch(e){
           console.log(e)
