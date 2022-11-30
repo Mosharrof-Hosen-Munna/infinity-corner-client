@@ -16,7 +16,7 @@ const MyProducts = () => {
     },
   });
   return (
-    <div className="py-4">
+    <div className="pb-16 pt-6">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {myProducts &&
           myProducts.map((product) => <MyProductCard product={product} refetch={refetch}/>)}

@@ -63,7 +63,7 @@ const MyProductCard = ({ product, refetch }) => {
             <div className="text-sm">{condition}</div>
           </div>
         </div>
-        <div className="dropdown dropdown-bottom dropdown-end float-right w-1/3 m-2">
+        <div className="dropdown dropdown-top dropdown-end float-right w-1/3 m-2">
           <label
             tabIndex={0}
             className="btn w-full bg-infinity m-1 hover:bg-infinity hover:border-infinity border-infinity"
@@ -78,7 +78,7 @@ const MyProductCard = ({ product, refetch }) => {
                 await adverticeProduct(_id)
                 refetch()
             }}>
-              <a>{!isAdvertise ? "Advertise":"Already advertised"}</a>
+              <a>Advertise</a>
             </li>}
             {
                 isAdvertise   && <li  > 

@@ -55,7 +55,7 @@ const CategoryProduct = () => {
           ))}
       </div>
       {showModal && (
-        <PurchaseModal product={product} setShowModal={setShowModal} />
+        <PurchaseModal product={product} setShowModal={setShowModal }  refetch={refetch}/>
       )}
     </div>
   );

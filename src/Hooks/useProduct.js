@@ -29,9 +29,16 @@ const useProduct = () => {
     return res.data;
   };
 
+  const deleteReport = async(id,productId)=>{
+    const url = `${process.env.REACT_APP_API_BASE_URL}/api/reported-product/delete?reportId=${id}&&productId=${productId}`
+    const res = await axios.delete(url)
+    return res.data
+}
+
   return {
     createProduct,
     deleteProduct,
+    deleteReport,
     adverticeProduct,
     createProductReport,
   };

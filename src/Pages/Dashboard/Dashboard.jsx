@@ -8,7 +8,10 @@ const Dashboard = () => {
   const {user} = useAuth()
 
   const userRole = user?.databaseUser?.role
-  
+  useEffect(() => {
+    window.scrollTo(0, 0)
+    document.title= 'InfinityCorner | Dashboard'
+  }, [])
   return (
     <div>
       {userRole === 'admin' && <AllSeller></AllSeller>}

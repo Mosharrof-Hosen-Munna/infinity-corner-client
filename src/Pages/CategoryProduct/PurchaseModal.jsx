@@ -5,7 +5,7 @@ import useAuth from "../../Hooks/useAuth";
 import useOrder from "../../Hooks/useOrder";
 import useProduct from "../../Hooks/useProduct";
 
-const PurchaseModal = ({product,setShowModal}) => {
+const PurchaseModal = ({product,setShowModal,refetch}) => {
   const {user } = useAuth()
   const [orderData,setOrderData] = useState({})
   const {saveNewOrder} = useOrder()
@@ -36,6 +36,7 @@ const PurchaseModal = ({product,setShowModal}) => {
       if(data.insertedId){
         setShowModal(false)
         e.target.reset()
+        refetch()
       }
     }
 
