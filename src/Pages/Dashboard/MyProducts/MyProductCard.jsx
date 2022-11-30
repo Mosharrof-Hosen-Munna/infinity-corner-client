@@ -74,14 +74,14 @@ const MyProductCard = ({ product, refetch }) => {
             tabIndex={0}
             className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
           >
-            {!isAdvertise && <li  onClick={async()=>{
+            {(!isAdvertise &&  isAvailable) && <li  onClick={async()=>{
                 await adverticeProduct(_id)
                 refetch()
             }}>
               <a>{!isAdvertise ? "Advertise":"Already advertised"}</a>
             </li>}
             {
-                isAdvertise && <li  > 
+                isAdvertise   && <li  > 
                   <a>Already advertised</a>
                 </li>
             }

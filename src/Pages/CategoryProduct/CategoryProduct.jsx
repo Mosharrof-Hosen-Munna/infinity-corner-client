@@ -2,6 +2,8 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import useAuth from "../../Hooks/useAuth";
+import useProduct from "../../Hooks/useProduct";
 import ProductCard from "./ProductCard";
 import PurchaseModal from "./PurchaseModal";
 
@@ -10,7 +12,8 @@ const CategoryProduct = () => {
   const [product, setProduct] = useState(null);
 
   const { categoryName } = useParams();
-  console.log(categoryName);
+  const {createProductReport} = useProduct()
+  const { user } = useAuth()
 
   const url = `${process.env.REACT_APP_API_BASE_URL}/api/products/category/${categoryName}`;
   const { data: categoryProducts = [], refetch } = useQuery({
@@ -22,7 +25,15 @@ const CategoryProduct = () => {
   });
   console.log(categoryProducts);
 
-  const handleReportProduct = (product) => {};
+  const handleReportProduct = async(product) => {
+    const reportObj = {
+      reportedProduct: product,
+      reportedUser: user.databaseUser
+    }
+    const data = await createProductReport(reportObj)
+    console.log(data)
+
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
