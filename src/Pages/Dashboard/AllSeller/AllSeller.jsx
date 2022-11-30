@@ -2,12 +2,13 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import React from "react";
 import useAuth from "../../../Hooks/useAuth";
-import useFirebase from "../../../Hooks/useFirebase";
-import useUser from "../../../Hooks/useUser";
+import useUser from "../../../Hooks/useUser"; 
+import { ToastContainer, toast } from 'react-toastify';
 
 const AllSeller = () => {
   const { user } = useAuth();
   const {deleteUser,verifyUser} = useUser()
+
 
   const url = `${process.env.REACT_APP_API_BASE_URL}/api/user/seller/all`;
   const { data: allSeller = [], refetch } = useQuery({
@@ -23,16 +24,20 @@ const AllSeller = () => {
   const handleVerify =async(email)=>{
     const data =await verifyUser(email)
     refetch()
-    console.log(data)
+    const verifyToast = toast('Seller vefiyed Successfully')
+    verifyToast()
   }
 
   const handleDelete = async(id,user)=>{
     const res = await deleteUser(id)
     refetch()
+    const deleteToast = toast('Seller deleted Successfully')
+    deleteToast()
   }
 
   return (
     <div className="my-4 mx-2">
+      <ToastContainer />
       <div className="overflow-x-auto w-full">
         <table className="table w-full">
           <thead>

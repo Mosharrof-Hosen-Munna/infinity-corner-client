@@ -7,7 +7,7 @@ const SellerRoute = ({ children }) => {
     const {user,loading} = useAuth()
     const location = useLocation()
 
-    const isSeller = user.databaseUser.role === 'seller'? true : false
+    const isSeller = user?.databaseUser?.role === 'seller'? true : false
 
     if(loading){
         return <div className="container mx-auto ">

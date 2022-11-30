@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
 import useProduct from "../../../Hooks/useProduct";
 import InputField from "./InputField";
+import { ToastContainer, toast } from 'react-toastify';
+
 
 const AddProduct = () => {
   const [productData, setProductData] = useState({category: 'macbook', condition:'excellent'});
@@ -55,6 +57,8 @@ const AddProduct = () => {
             e.target.reset()
             setProductData({category: 'macbook', condition:'excellent'})
             setImage(null)
+            const productToast = toast('Product successfully added!')
+            productToast()
             navigate('/dashboard/my-products')
           }
           console.log(data)
@@ -70,6 +74,7 @@ const AddProduct = () => {
 
   return (
     <section className="my-8 ">
+      <ToastContainer/>
       <div className="mx-auto">
         <div className="card w-2/3 mx-auto bg-slate-50 p-4">
           <h1 className="text-center text-3xl font-semibold my-3 text-infinity">

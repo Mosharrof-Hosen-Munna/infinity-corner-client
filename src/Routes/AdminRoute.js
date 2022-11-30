@@ -7,7 +7,7 @@ const AdminRoute = ({ children }) => {
     const {user,loading} = useAuth()
     const location = useLocation()
 
-    const isAdmin = user.databaseUser.role === 'admin'? true : false
+    const isAdmin = user?.databaseUser?.role === 'admin'? true : false
 
     if(loading){
         return <div className="container mx-auto ">

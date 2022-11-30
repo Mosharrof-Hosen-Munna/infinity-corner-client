@@ -1,9 +1,8 @@
-import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import useAuth from "../../Hooks/useAuth";
 import useOrder from "../../Hooks/useOrder";
-import useProduct from "../../Hooks/useProduct";
+import { ToastContainer, toast } from 'react-toastify';
+
 
 const PurchaseModal = ({product,setShowModal,refetch}) => {
   const {user } = useAuth()
@@ -37,6 +36,9 @@ const PurchaseModal = ({product,setShowModal,refetch}) => {
         setShowModal(false)
         e.target.reset()
         refetch()
+
+        const orderToast = toast('Order Placed Successfull')
+        orderToast()
       }
     }
 
@@ -49,6 +51,7 @@ const PurchaseModal = ({product,setShowModal,refetch}) => {
   return (
     <div>
       <input type="checkbox" id="purchase-modal" className="modal-toggle" />
+      <ToastContainer/>
       <div className="modal">
         <div className="modal-box relative">
           <label

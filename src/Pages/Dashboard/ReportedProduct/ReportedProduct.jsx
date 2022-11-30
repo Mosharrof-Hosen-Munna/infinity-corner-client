@@ -3,7 +3,8 @@ import axios from "axios";
 import React from "react";
 import useAuth from "../../../Hooks/useAuth";
 import useProduct from "../../../Hooks/useProduct";
-import useUser from "../../../Hooks/useUser";
+import { ToastContainer, toast } from 'react-toastify';
+
 
 const ReportedProduct = () => {
   const { user } = useAuth();
@@ -25,10 +26,13 @@ const ReportedProduct = () => {
       console.log(id,productId)
     const res = await deleteReport(id,productId);
     refetch();
+    const deleteToast = toast('Reported product succesfully deleted')
+    deleteToast()
   };
 
   return (
     <div className="my-4 mx-2">
+      <ToastContainer/>
       <div className="overflow-x-auto w-full">
         <table className="table w-full">
           <thead>

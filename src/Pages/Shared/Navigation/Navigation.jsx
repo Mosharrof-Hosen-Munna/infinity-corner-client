@@ -19,12 +19,15 @@ const Navigation = () => {
       <li>
                 <Link to="/home">HOME</Link>
               </li>
-              <li>
-                <Link to="/services">PRODUCTS</Link>
-              </li>
+              
               <li>
                 <Link to="/blog">BLOG</Link>
               </li>
+              {
+                user&&<li>
+                <Link to="/dashboard">DASHBOARD</Link>
+              </li>
+              }
               
               {
               !user&&<>
@@ -65,9 +68,6 @@ const Navigation = () => {
             <ul className="menu menu-horizontal p-0 text-md text-infinity">
               <li>
                 <Link to="/home">HOME</Link>
-              </li>
-              <li>
-                <Link to="/services">PRODUCTS</Link>
               </li>
               
               <li>
