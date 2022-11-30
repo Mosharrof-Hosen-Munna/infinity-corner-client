@@ -99,7 +99,7 @@ const Register = () => {
             };
             // get jwt token
             await axios
-              .post("http://localhost:5000/api/jwt", newUser)
+              .post("https://assignment-12-server-two-pi.vercel.app/api/jwt", newUser)
               .then((res) => {
                 localStorage.setItem("token", res.data.token);
               })
@@ -134,7 +134,7 @@ const Register = () => {
         };
         // get jwt token
         await axios
-          .post("http://localhost:5000/api/jwt", newUser)
+          .post("https://assignment-12-server-two-pi.vercel.app/api/jwt", newUser)
           .then((res) => {
             localStorage.setItem("token", res.data.token);
           })
