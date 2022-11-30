@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import useAuth from '../../Hooks/useAuth'
 import AddProduct from './AddProduct/AddProduct'
 import AllSeller from './AllSeller/AllSeller'
+import MyOrder from './MyOrder/MyOrder'
 
 const Dashboard = () => {
   const {user} = useAuth()
@@ -15,7 +16,7 @@ const Dashboard = () => {
   return (
     <div>
       {userRole === 'admin' && <AllSeller></AllSeller>}
-      {userRole === 'buyer' && <AllSeller></AllSeller>}
+      {userRole === 'buyer' && <MyOrder></MyOrder>}
       {userRole === 'seller' && <AddProduct></AddProduct>}
     </div>
   )

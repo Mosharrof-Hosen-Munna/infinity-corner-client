@@ -9,8 +9,6 @@ import {
   updateProfile,
   signInWithEmailAndPassword,
   deleteUser,
-  
-  
 } from "firebase/auth";
 import { useEffect, useState } from "react";
 import initializeAuthentication from "../Firebase/firebase.init";
@@ -28,8 +26,6 @@ const useFirebase = () => {
     return signInWithPopup(auth, googleProvider);
   };
 
-  
-
   const handleEmailPasswordRegister = (email, password, name) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
@@ -38,38 +34,35 @@ const useFirebase = () => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-
-
   const setUserName = (name, photoURL) => {
-    
-      updateProfile(auth.currentUser, { displayName: name,photoURL }).then(
-        (result) => {}
-      );
-    
+    updateProfile(auth.currentUser, { displayName: name, photoURL }).then(
+      (result) => {}
+    );
   };
 
- useEffect(()=>{
+  useEffect(() => {
+   
 
-  if(user?.databaseUser) {
-    return
-  }
-  if(user){
-    setLoading(true)
-    const url = `${process.env.REACT_APP_API_BASE_URL}/api/user/${user.email}`
-    axios.get(url)
-    .then(res=>{
-      setUser({...user,databaseUser:res.data})
-      setLoading(false)
-      console.log(user)
-      console.log(res.data)
-    })
-      
-    .catch(err=>{
-      setLoading(false)
-      console.log(err)})
-    
-  }
- },[user])
+    if (user?.databaseUser) {
+      setLoading(false);
+      return;
+    }
+    if (user) {
+      setLoading(true);
+      const url = `${process.env.REACT_APP_API_BASE_URL}/api/user/${user?.email}`;
+      axios
+        .get(url)
+        .then((res) => {
+          setUser({ ...user, databaseUser: res.data });
+          setLoading(false)
+        })
+
+        .catch((err) => {
+          console.log(err);
+        })
+        .finally(() => setLoading(false));
+    }
+  }, [user]);
 
   const saveGoogleUserToDatabase = (user) => {
     const url = `${process.env.REACT_APP_API_BASE_URL}/api/user/create`;
@@ -92,32 +85,31 @@ const useFirebase = () => {
     signOut(auth)
       .then(() => {
         setUser(null);
-        if(localStorage.getItem('token')){
-          localStorage.removeItem('token')
+        if (localStorage.getItem("token")) {
+          localStorage.removeItem("token");
         }
-        setLoading(false)
+        setLoading(false);
       })
-      .catch(err=>{
-        setLoading(false)
-        console.log(err)
+      .catch((err) => {
+        setLoading(false);
+        console.log(err);
       })
       .finally(() => setLoading(false));
-      setLoading(false)
+    setLoading(false);
   };
 
   useEffect(() => {
     onAuthStateChanged(auth, (userInfo) => {
       if (userInfo) {
         setUser(userInfo);
-        if(user.databaseUser){
-        setLoading(false);
+        if (user.databaseUser) {
+          setLoading(false);
         }
       } else {
         setUser(null);
         setLoading(false);
       }
       setLoading(false);
-
     });
   }, [auth]);
 

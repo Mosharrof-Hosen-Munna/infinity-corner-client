@@ -7,14 +7,22 @@ import { ToastContainer, toast } from 'react-toastify';
 
 
 const AllBuyer = () => {
-    const { user } = useAuth();
+    const { user,logOut } = useAuth();
     const {deleteUser} = useUser()
   
     const url = `${process.env.REACT_APP_API_BASE_URL}/api/user/buyer/all`;
     const { data: allBuyer = [], refetch } = useQuery({
       queryKey: ["allBuyer", user],
       queryFn: async () => {
-        const res = await axios.get(url);
+        const res = await axios.get(url,{
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        });
+        if (res.status === 401 || res.status === 403) {
+          logOut();
+        }
+
         return res.data;
       },
     });

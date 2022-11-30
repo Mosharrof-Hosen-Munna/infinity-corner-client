@@ -17,6 +17,7 @@ import Login from "../Pages/Login/Login";
 import NotFound from "../Pages/NotFound/NotFound";
 import Register from "../Pages/Register/Register";
 import AdminRoute from "./AdminRoute";
+import PrivateRoute from "./PrivateRoute";
 import SellerRoute from "./SellerRoute";
 
 const Routes = createBrowserRouter([
@@ -64,11 +65,11 @@ const Routes = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <DashboardLayout />,
+    element:<PrivateRoute> <DashboardLayout /></PrivateRoute>,
     children: [
       {
         path: "/dashboard",
-        element: <Dashboard />,
+        element: <PrivateRoute><Dashboard /></PrivateRoute>,
       },
       {
         path: "/dashboard/my-orders",

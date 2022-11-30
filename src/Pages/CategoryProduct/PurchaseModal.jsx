@@ -28,6 +28,7 @@ const PurchaseModal = ({product,setShowModal,refetch}) => {
       const order = {
         ...orderData,
         createAt: new Date(),
+        paid:false,
        orderProduct:  product
       }
 
@@ -50,8 +51,8 @@ const PurchaseModal = ({product,setShowModal,refetch}) => {
 
   return (
     <div>
-      <input type="checkbox" id="purchase-modal" className="modal-toggle" />
       <ToastContainer/>
+      <input type="checkbox" id="purchase-modal" className="modal-toggle" />
       <div className="modal">
         <div className="modal-box relative">
           <label

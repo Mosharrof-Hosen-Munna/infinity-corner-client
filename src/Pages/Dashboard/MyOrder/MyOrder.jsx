@@ -1,23 +1,34 @@
-import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
-import React from 'react'
-import useAuth from '../../../Hooks/useAuth';
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import React from "react";
+import Moment from "react-moment";
+import { Link } from "react-router-dom";
+import useAuth from "../../../Hooks/useAuth";
 
 const MyOrder = () => {
-    const { user } = useAuth();
-    const url = `${process.env.REACT_APP_API_BASE_URL}/api/orders/user/${user.email}`;
-    const { data: myOrder = [], refetch } = useQuery({
-      queryKey: ["myOrder", user],
-      queryFn: async () => {
-        const res = await axios.get(url);
-        return res.data;
-      },
-    });
-    console.log(myOrder)
+  const { user, logOut } = useAuth();
+  const url = `${process.env.REACT_APP_API_BASE_URL}/api/orders/user/${user.email}`;
+  const { data: myOrder = [], refetch } = useQuery({
+    queryKey: ["myOrder", user],
+    queryFn: async () => {
+      const res = await axios.get(url, {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+      if (res.status === 401 || res.status === 403) {
+        logOut();
+      }
+
+      return res.data;
+    },
+  });
+
+  console.log(myOrder)
 
   return (
     <div className="my-4 mx-2">
-      {/* <div className="overflow-x-auto w-full">
+      <div className="overflow-x-auto w-full">
         <table className="table w-full">
           <thead>
             <tr>
@@ -35,51 +46,54 @@ const MyOrder = () => {
                   <div className="avatar">
                     <div className="mask mask-squircle w-12 h-12">
                       <img
-                        src={order.photoUrl}
+                        src={order.orderProduct.imageUrl}
                         alt="Avatar Tailwind CSS Component"
                       />
                     </div>
                   </div>
                   <div>
-                    <div className="font-bold">{order.name}</div>
-                    <div className="text-sm opacity-50">{order.role}</div>
+                    <div className="font-bold">{order.orderProduct.productName}</div>
+                    <div className="text-sm opacity-50"><Moment className="text-xs ml-1 text-gray-500" fromNow>
+              {order.createAt}
+            </Moment></div>
                   </div>
                 </div>
               </td>
               <td>
-               {order.email}
+               {order.buyer.email}
                 
               </td>
               <td>
-                {!order.isVerified ? <div className="p-2 bg-infinity inline-block text-white font-semibold">
-                     Not verified
-                </div>:
-                <div className="p-2 bg-green-600 inline-block text-white font-semibold">
-                     verified
-                </div>}
+               {order.buyer.email}
+                
               </td>
+              
               <th>
-              {!order.isVerified && <button  className="inline-block  bg-green-600  p-2 text-white font-medium  leading-tight uppercase rounded shadow-md  hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg mr-2 transition duration-150 ease-in-out "
-              type="button"
-              onClick={()=>handleVerify(order.email)}
-              data-mdb-ripple="true"
-              data-mdb-ripple-color="light">
-                    Make verified
-              </button>}
-              <button  className="inline-block  bg-red-600  p-2 text-white font-medium  leading-tight uppercase rounded shadow-md  hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg mr-2 transition duration-150 ease-in-out "
-              type="button"
-              data-mdb-ripple="true"
-              onClick={()=>handleDelete(order._id,order)}
-              data-mdb-ripple-color="light">
-                    Delete
-              </button>
+              
+              {
+                order.paid &&<button  className="inline-block  bg-red-600  p-2 text-white font-medium  leading-tight uppercase rounded shadow-md  hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg mr-2 transition duration-150 ease-in-out "
+                type="button"
+                data-mdb-ripple="true"
+                data-mdb-ripple-color="light">
+                      paid
+                </button>
+              }
+              {
+                !order.paid && <Link  to={`/dashboard/payment/${order._id}`}>
+                <button  className="inline-block  bg-green-600  p-2 text-white font-medium  leading-tight uppercase rounded shadow-md  hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg mr-2 transition duration-150 ease-in-out "
+                type="button"
+                data-mdb-ripple="true"
+                data-mdb-ripple-color="light">
+                      Pay
+                </button></Link>
+              }
               </th>
             </tr>)}
           </tbody>
         </table>
-      </div> */}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default MyOrder
+export default MyOrder;

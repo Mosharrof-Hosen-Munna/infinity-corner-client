@@ -8,6 +8,8 @@ const SellerRoute = ({ children }) => {
     const location = useLocation()
 
     const isSeller = user?.databaseUser?.role === 'seller'? true : false
+    console.log(isSeller)
+    console.log(user.databaseUser)
 
     if(loading){
         return <div className="container mx-auto ">

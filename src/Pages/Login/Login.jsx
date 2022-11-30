@@ -52,16 +52,16 @@ const Login = () => {
             .post("http://localhost:5000/api/jwt", newUser)
             .then((res) => {
               localStorage.setItem("token", res.data.token);
+              navigate(from, { replace: true });
             })
             .catch((err) => console.log(err));
 
-          navigate(from, { replace: true });
         })
         .catch((e) => {
           console.log(e);
           setError("Email or password wrong!");
+          setLoading(false)
         })
-        .finally(() => setLoading(false));
     }
   };
   const signInGoogle = () => {
@@ -92,7 +92,6 @@ const Login = () => {
         setLoading(false);
         
         console.log(error.message)})
-      .finally(() => setLoading(false));
   };
 
   if (loading) {
