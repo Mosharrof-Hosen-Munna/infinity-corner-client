@@ -3,20 +3,15 @@ import Moment from "react-moment";
 
 const ProductCard = ({ product, setShowModal, showModal, setProduct,isFeatured ,handleReportProduct}) => {
   const {
-    category,
     condition,
     sellerName,
     resalePrice,
-    purchaseDate,
-    sellerEmail,
     createdAt,
     descriptions,
     imageUrl,
     isAvailable,
     isVerified,
     location,
-    yearsOfUse,
-    _id,
     originalPrice,
     productName,
     sellerPhoto,
@@ -52,7 +47,7 @@ const ProductCard = ({ product, setShowModal, showModal, setProduct,isFeatured ,
         </div>
 
         <h1 className="text-xl font-semibold">{productName}</h1>
-        <p className="text-xs text-gray-600">{descriptions}</p>
+        <p className="text-xs text-gray-600">{descriptions.slice(0,100)}</p>
         <div className="flex items-center justify-between text-sm mt-1 text-gray-400">
           <h3>Location: {location}</h3>
           <h3>{isAvailable ? <span className="text-green-600 text-lg font-semibold">Available</span>: <span className="text-red-600 text-lg font-semibold">Sold*</span>}</h3>
