@@ -39,11 +39,11 @@ const Routes = createBrowserRouter([
       },
       {
         path: "/category/:categoryName",
-        element: <CategoryLayout />,
+        element: <PrivateRoute><CategoryLayout /></PrivateRoute>,
         children: [
           {
             path: "/category/:categoryName",
-            element: <CategoryProduct />,
+            element: <PrivateRoute><CategoryProduct /></PrivateRoute>,
           },
         ]
       },
